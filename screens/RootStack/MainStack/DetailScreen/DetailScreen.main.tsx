@@ -1,6 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import React from "react";
+import React, { useEffect } from "react";
 import { ScrollView, Image, Text, View } from "react-native";
 import { Appbar } from "react-native-paper";
 import { MainStackParamList } from "../MainStackScreen";
@@ -13,6 +13,10 @@ interface Props {
 
 export default function DetailScreen({ route, navigation }: Props) {
   const { social } = route.params;
+
+  useEffect(() => {
+    console.log(typeof(social.eventDate))
+  }, [])
 
   const Bar = () => {
     return (
@@ -36,7 +40,7 @@ export default function DetailScreen({ route, navigation }: Props) {
             {social.eventLocation}
           </Text>
           <Text style={{ ...styles.subtitle, marginTop: 5, marginBottom: 20 }}>
-            {new Date(social.eventDate).toLocaleString()}
+            {social.eventDate}
           </Text>
           <Text style={styles.body}>{social.eventDescription}</Text>
         </View>

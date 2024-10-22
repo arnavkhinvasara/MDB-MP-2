@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { MainStackScreen } from "./MainStack/MainStackScreen";
 import NewSocialScreen from "./NewSocialScreen/NewSocialScreen.main";
+import ConfirmationScreen from "./ConfirmationScreen/ConfirmationScreen.main";
 import { NavigationContainer } from "@react-navigation/native";
 
 export type RootStackParamList = {
@@ -29,6 +30,11 @@ export function RootStackScreen() {
         />
         {/* Create a confirmation screen that appears after you create a social (refer to video demo) */}
         {/* Be as creative as you'd like, but ensure that it has two buttons, one to go to home screen, and one to view socials */}
+        <RootStack.Screen
+          name="ConfirmationScreen"
+          options={options}
+          component={ConfirmationScreen}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
